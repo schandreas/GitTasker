@@ -5,6 +5,8 @@ import javax.swing.*;
 import at.andreas.restental.Tasker.Task;
 
 import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 public class TaskerGUI extends JFrame {
@@ -13,7 +15,7 @@ public class TaskerGUI extends JFrame {
 	 */
 	private static final long serialVersionUID = -5997990811036948155L;
 
-	JPanel panel_1;
+	JPanel ViewportWrapper;
 	
 	public TaskerGUI() {
 		super("Tasker");
@@ -34,9 +36,9 @@ public class TaskerGUI extends JFrame {
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
 		
-		panel_1 = new JPanel();
-		panel_1.setLayout(new GridLayout(0, 1));
-		scrollPane.setViewportView(panel_1);
+		ViewportWrapper = new JPanel();
+		ViewportWrapper.setLayout(new BoxLayout(ViewportWrapper, BoxLayout.PAGE_AXIS));
+		scrollPane.setViewportView(ViewportWrapper);
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -44,7 +46,8 @@ public class TaskerGUI extends JFrame {
 	}
 	
 	public void addGUITask(Task tsk) {
-		panel_1.add(new GUITask(tsk));
+		ViewportWrapper.add(new GUITask(tsk));
+		this.setVisible(true);
 	}
 
 

@@ -21,11 +21,14 @@ public class GUITask extends JPanel{
 
 	public GUITask (Task tsk) {
 		super();
-		this.setSize(120, 120);
+		this.setMaximumSize(new Dimension(40000,120));
 		this.setVisible(true);
+		this.setPreferredSize(new Dimension(400,120));
 		this.setLayout(new BorderLayout());
 		this.add(BorderLayout.NORTH, new JSeparator());
 		this.add(BorderLayout.SOUTH, new JSeparator());
+		
+		
 		
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
@@ -45,22 +48,22 @@ public class GUITask extends JPanel{
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JLabel lblPrio = new JLabel("Priority: " + tsk.getPriority());
-		panel_1.add(lblPrio, BorderLayout.EAST);
+		panel_1.add(lblPrio, BorderLayout.WEST);
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
-		panel_1.add(separator, BorderLayout.WEST);
+		panel_1.add(separator, BorderLayout.EAST);
 		
 		JPanel panel_2 = new JPanel();
 		add(panel_2, BorderLayout.EAST);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
 		JCheckBox chckbxcomplete = new JCheckBox("Complete?");
-		panel_2.add(chckbxcomplete, BorderLayout.WEST);
+		panel_2.add(chckbxcomplete, BorderLayout.EAST);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setOrientation(SwingConstants.VERTICAL);
-		panel_2.add(separator_1, BorderLayout.EAST);
+		panel_2.add(separator_1, BorderLayout.WEST);
 	}
 
 }
