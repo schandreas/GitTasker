@@ -14,7 +14,10 @@ public class Task {
     }
 
     public Task(){
-
+    	this.name = null;
+        this.description = null;
+        this.creator = null;
+        this.priority = 0;
     }
 
     public void setCreator(String creator) {

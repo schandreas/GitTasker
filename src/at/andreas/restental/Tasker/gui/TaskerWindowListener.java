@@ -3,6 +3,7 @@ package at.andreas.restental.Tasker.gui;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import at.andreas.restental.Tasker.TaskerMain;
 import at.andreas.restental.Tasker.io.TaskerXMLWriter;
 
 public class TaskerWindowListener implements WindowListener {
@@ -21,6 +22,9 @@ public class TaskerWindowListener implements WindowListener {
 
 	@Override
 	public void windowClosed(WindowEvent e) {
+		for (int i = 0; i < TaskerMain.tsk.size(); i++) {
+			toclose.writeTask(TaskerMain.tsk.get(i));
+		}
 		toclose.close();
 	}
 
