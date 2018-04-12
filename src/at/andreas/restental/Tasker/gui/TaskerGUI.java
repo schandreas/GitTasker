@@ -40,7 +40,7 @@ public class TaskerGUI extends JFrame {
 		ViewportWrapper.setLayout(new BoxLayout(ViewportWrapper, BoxLayout.PAGE_AXIS));
 		scrollPane.setViewportView(ViewportWrapper);
 		
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		this.setVisible(true);
 	}
@@ -49,7 +49,7 @@ public class TaskerGUI extends JFrame {
 		ViewportWrapper.add(new GUITask(tsk));
 		this.setVisible(true);
 	}
-
+	
 
 
 }
