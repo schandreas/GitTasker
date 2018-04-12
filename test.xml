@@ -1,15 +1,2 @@
-<?xml version = "1.0"?>
-<tasks>
-    <task>
-        <name>Demo#1</name>
-        <description>This is a demo task that features this demo description</description>
-        <priority>0</priority>
-        <creator>me</creator>
-    </task>
-    <task>
-        <name>Demo#2</name>
-        <description>öäüüpöä</description>
-        <priority>3</priority>
-        <creator>you</creator>
-    </task>
-</tasks>
+<?xml version="1.0" ?><tasks><task><name>Demo#1</name><description>This is a demo task that features this demo description
+		</description><priority>0</priority><creator>me</creator></task><task><name>oooh</name><description>I honestly dont know</description><priority>10</priority><creator>magic</creator></task><task><name>oooh</name><description>I honestly dont know</description><priority>10</priority><creator>magic</creator></task><task><name>oooh</name><description>I honestly dont know</description><priority>10</priority><creator>magic</creator></task><task><name>oooh</name><description>I honestly dont know</description><priority>10</priority><creator>magic</creator></task><task><name>oooh</name><description>I honestly dont know</description><priority>10</priority><creator>magic</creator></task></tasks>

@@ -33,16 +33,15 @@ public class TaskerXMLParser {
         }
     }
 
-    public Task[] readTasks(){
-        try {
-            sp.parse(in, th);
-            return th.getTasks();
-        }catch(IOException e1){
-            e1.printStackTrace();
-        }catch(SAXException e2){
-            e2.printStackTrace();
-        }
-        return null;
+    public Vector<Task> readTasks(){
+    	try {
+			sp.parse(in, th);
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        return th.getTasks();
     }
 
 
@@ -90,13 +89,8 @@ public class TaskerXMLParser {
             temp = new String(ch, start, length);
         }
 
-        public Task[] getTasks() {
-            Task ret[] = new Task[tasks.size()];
-            for(int i = 0; i < tasks.size(); i++){
-                ret[i] = tasks.get(i);
-            }
-            return ret;
+        public Vector<Task> getTasks() {
+            return tasks;
         }
     }
-
 }
