@@ -1,9 +1,9 @@
-package at.andreas.restental.Tasker.gui;
+package at.restental.andreas.Tasker.gui;
 
 import javax.swing.*;
 
-import at.andreas.restental.Tasker.Task;
-import at.andreas.restental.Tasker.TaskerMain;
+import at.restental.andreas.Tasker.Task;
+import at.restental.andreas.Tasker.TaskerMain;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

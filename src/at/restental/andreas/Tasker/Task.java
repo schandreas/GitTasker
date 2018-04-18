@@ -1,4 +1,4 @@
-package at.andreas.restental.Tasker;
+package at.restental.andreas.Tasker;
 
 public class Task {
     String name;

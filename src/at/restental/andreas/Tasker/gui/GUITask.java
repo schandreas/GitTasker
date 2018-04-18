@@ -1,4 +1,4 @@
-package at.andreas.restental.Tasker.gui;
+package at.restental.andreas.Tasker.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -6,11 +6,11 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
-
-import at.andreas.restental.Tasker.Task;
 import javax.swing.JCheckBox;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
+
+import at.restental.andreas.Tasker.Task;
 
 public class GUITask extends JPanel {
 

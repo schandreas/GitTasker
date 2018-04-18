@@ -1,14 +1,14 @@
-package at.andreas.restental.Tasker;
+package at.restental.andreas.Tasker;
 
 import java.util.Vector;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import at.andreas.restental.Tasker.gui.TaskerGUI;
-import at.andreas.restental.Tasker.gui.TaskerWindowListener;
-import at.andreas.restental.Tasker.io.TaskerXMLParser;
-import at.andreas.restental.Tasker.io.TaskerXMLWriter;
+import at.restental.andreas.Tasker.gui.TaskerGUI;
+import at.restental.andreas.Tasker.gui.TaskerWindowListener;
+import at.restental.andreas.Tasker.io.TaskerXMLParser;
+import at.restental.andreas.Tasker.io.TaskerXMLWriter;
 
 public class TaskerMain {
 

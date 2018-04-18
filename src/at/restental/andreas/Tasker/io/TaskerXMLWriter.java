@@ -1,4 +1,4 @@
-package at.andreas.restental.Tasker.io;
+package at.restental.andreas.Tasker.io;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,7 +8,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import at.andreas.restental.Tasker.Task;
+import at.restental.andreas.Tasker.Task;
 
 public class TaskerXMLWriter {
 

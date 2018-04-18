@@ -1,10 +1,10 @@
-package at.andreas.restental.Tasker.gui;
+package at.restental.andreas.Tasker.gui;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import at.andreas.restental.Tasker.TaskerMain;
-import at.andreas.restental.Tasker.io.TaskerXMLWriter;
+import at.restental.andreas.Tasker.TaskerMain;
+import at.restental.andreas.Tasker.io.TaskerXMLWriter;
 
 public class TaskerWindowListener implements WindowListener {
 

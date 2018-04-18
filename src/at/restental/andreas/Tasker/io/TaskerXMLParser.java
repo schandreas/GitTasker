@@ -1,8 +1,10 @@
-package at.andreas.restental.Tasker.io;
+package at.restental.andreas.Tasker.io;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+
+import at.restental.andreas.Tasker.Task;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -10,8 +12,6 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
-
-import at.andreas.restental.Tasker.Task;
 
 public class TaskerXMLParser {
 
