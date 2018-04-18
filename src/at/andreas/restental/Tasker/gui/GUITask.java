@@ -47,7 +47,7 @@ public class GUITask extends JPanel{
 		add(panel_1, BorderLayout.WEST);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblPrio = new JLabel("Priority: " + tsk.getPriority());
+		JLabel lblPrio = new JLabel("Priority: " + tsk.getPriority() + "   ");
 		panel_1.add(lblPrio, BorderLayout.WEST);
 		
 		JSeparator separator = new JSeparator();

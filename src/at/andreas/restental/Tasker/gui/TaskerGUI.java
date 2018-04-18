@@ -22,7 +22,7 @@ public class TaskerGUI extends JFrame implements ActionListener {
 
 	public TaskerGUI() {
 		super("Tasker");
-		this.setSize(400, 400);
+		this.setSize(600, 600);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
