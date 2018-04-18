@@ -6,11 +6,10 @@ import at.andreas.restental.Tasker.Task;
 import at.andreas.restental.Tasker.TaskerMain;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 public class TaskerGUI extends JFrame implements ActionListener {
 	/**
@@ -18,10 +17,12 @@ public class TaskerGUI extends JFrame implements ActionListener {
 	 */
 	private static final long serialVersionUID = -5997990811036948155L;
 
-	JPanel ViewportWrapper;
+	private JPanel ViewportWrapper;
+	private Vector<GUITask> tsk;
 
 	public TaskerGUI() {
 		super("Tasker");
+		tsk = new Vector<GUITask>();
 		this.setSize(600, 600);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 
@@ -34,12 +35,18 @@ public class TaskerGUI extends JFrame implements ActionListener {
 
 		JButton btnNewButton = new JButton("New Task");
 		panel.add(btnNewButton);
+		btnNewButton.setActionCommand("New");
+
+		JButton btnComplete = new JButton("Complete tasks");
+		panel.add(btnComplete);
+		btnComplete.setActionCommand("Com");
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
 
 		btnNewButton.addActionListener(this);
+		btnComplete.addActionListener(this);
 
 		ViewportWrapper = new JPanel();
 		ViewportWrapper.setLayout(new BoxLayout(ViewportWrapper, BoxLayout.PAGE_AXIS));
@@ -51,16 +58,18 @@ public class TaskerGUI extends JFrame implements ActionListener {
 	}
 
 	public void addGUITask(Task tsk) {
-		ViewportWrapper.add(new GUITask(tsk));
+		this.tsk.add(new GUITask(tsk));
+		ViewportWrapper.add(this.tsk.lastElement());
 		this.setVisible(true);
 	}
-	
+
 	public void removeAllGUITasks() {
+		this.tsk.removeAllElements();
 		ViewportWrapper.removeAll();
+		ViewportWrapper.updateUI();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	private void createDialogs() {
 		String name = (String) JOptionPane.showInputDialog(this, "Enter Name for new Task", "Name Picker (Step 1/4)",
 				JOptionPane.INFORMATION_MESSAGE, null, null, "new_Task");
 		if (name == null || name.length() == 0) {
@@ -98,7 +107,22 @@ public class TaskerGUI extends JFrame implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
+	}
 
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getActionCommand().equals("New")) {
+			this.createDialogs();
+		} else {
+			System.out.println(tsk.size() + " " + TaskerMain.tsk.size());
+			for (int i = tsk.size() - 1; i >= 0 ; i--) {
+				if(tsk.get(i).isComplete()) {
+					tsk.remove(i);
+					TaskerMain.tsk.remove(i);
+				}
+			}
+			TaskerMain.updateGUITasks();
+		}
 	}
 
 }

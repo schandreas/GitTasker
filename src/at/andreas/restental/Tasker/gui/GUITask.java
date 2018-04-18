@@ -12,12 +12,14 @@ import javax.swing.JCheckBox;
 import java.awt.GridLayout;
 import javax.swing.SwingConstants;
 
-public class GUITask extends JPanel{
-	
+public class GUITask extends JPanel {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2414342546930428071L;
+
+	private JCheckBox chckbxcomplete;
 
 	public GUITask (Task tsk) {
 		super();
@@ -58,12 +60,16 @@ public class GUITask extends JPanel{
 		add(panel_2, BorderLayout.EAST);
 		panel_2.setLayout(new BorderLayout(0, 0));
 		
-		JCheckBox chckbxcomplete = new JCheckBox("Complete?");
+		chckbxcomplete = new JCheckBox("Complete?");
 		panel_2.add(chckbxcomplete, BorderLayout.EAST);
 		
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setOrientation(SwingConstants.VERTICAL);
 		panel_2.add(separator_1, BorderLayout.WEST);
+	}
+
+	public boolean isComplete() {
+		return chckbxcomplete.isSelected();
 	}
 
 }

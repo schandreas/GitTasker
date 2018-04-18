@@ -5,12 +5,14 @@ public class Task {
     String description;
     String creator;
     int priority;
+    boolean complete;
 
     public Task(String name, String description, String creator, int priority){
         this.name = name;
         this.description = description;
         this.creator = creator;
         this.priority = priority;
+        this.complete = false;
     }
 
     public Task(){
@@ -18,6 +20,7 @@ public class Task {
         this.description = null;
         this.creator = null;
         this.priority = 0;
+        this.complete = false;
     }
 
     public void setCreator(String creator) {
