@@ -1,7 +1,9 @@
 package at.restental.andreas.Tasker;
 
+import java.io.File;
 import java.util.Vector;
 
+import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -19,24 +21,31 @@ public class TaskerMain {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (UnsupportedLookAndFeelException e) {
-			
+
 		} catch (ClassNotFoundException e) {
-			
+
 		} catch (InstantiationException e) {
-			
+
 		} catch (IllegalAccessException e) {
-			
+
 		}
 
-		tsk = new TaskerXMLParser(args[0]).readTasks();
-
+		final JFileChooser fc = new JFileChooser();
+		int returnVal = fc.showOpenDialog(null);
+		
+		TaskerXMLWriter out;
+		
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			tsk = new TaskerXMLParser(fc.getSelectedFile().getAbsolutePath()).readTasks();
+			out = new TaskerXMLWriter(args[0]);
+		} else {
+			tsk = new TaskerXMLParser("tasks.xml").readTasks();
+			out = new TaskerXMLWriter("tasks.xml");
+		}
+		
 		test.updateGUITasks();
-
-		TaskerXMLWriter out = new TaskerXMLWriter(args[0]);
 
 		test.addWindowListener(new TaskerWindowListener(out));
 	}
-
-	
 
 }
