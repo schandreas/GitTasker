@@ -1,6 +1,7 @@
 package at.restental.andreas.Tasker;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Vector;
 
 import javax.swing.JFileChooser;
@@ -32,17 +33,31 @@ public class TaskerMain {
 
 		final JFileChooser fc = new JFileChooser();
 		int returnVal = fc.showOpenDialog(null);
-		
+
 		TaskerXMLWriter out;
-		
+
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			if (!fc.getSelectedFile().exists()) {
+				try {
+					fc.getSelectedFile().createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 			tsk = new TaskerXMLParser(fc.getSelectedFile().getAbsolutePath()).readTasks();
 			out = new TaskerXMLWriter(args[0]);
 		} else {
+			if (!new File("tasks.xml").exists()) {
+				try {
+					new File("tasks.xml").createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 			tsk = new TaskerXMLParser("tasks.xml").readTasks();
 			out = new TaskerXMLWriter("tasks.xml");
 		}
-		
+
 		test.updateGUITasks();
 
 		test.addWindowListener(new TaskerWindowListener(out));
