@@ -17,32 +17,26 @@ public class TaskerMain {
 
 	public static void main(String args[]) {
 		try {
-			// Set System L&F
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (UnsupportedLookAndFeelException e) {
-			// handle exception
+			
 		} catch (ClassNotFoundException e) {
-			// handle exception
+			
 		} catch (InstantiationException e) {
-			// handle exception
+			
 		} catch (IllegalAccessException e) {
-			// handle exception
+			
 		}
 
 		tsk = new TaskerXMLParser(args[0]).readTasks();
 
-		updateGUITasks();
+		test.updateGUITasks();
 
 		TaskerXMLWriter out = new TaskerXMLWriter(args[0]);
 
 		test.addWindowListener(new TaskerWindowListener(out));
 	}
 
-	public static void updateGUITasks() {
-		test.removeAllGUITasks();
-		for (int i = 0; i < tsk.size(); i++) {
-			test.addGUITask(tsk.elementAt(i));
-		}
-	}
+	
 
 }

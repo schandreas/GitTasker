@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Vector;
 
 public class TaskerGUI extends JFrame implements ActionListener {
@@ -99,13 +101,21 @@ public class TaskerGUI extends JFrame implements ActionListener {
 			return;
 		}
 		try {
-			Task toadd = new Task(name, description, creator, new Integer(priority_s));
+			Task toadd = new Task(name, description, creator, new Integer(priority_s) % 10);
 			TaskerMain.tsk.add(toadd);
-			TaskerMain.updateGUITasks();
+			this.updateGUITasks();
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(this, "Invalid Input. Aborting", "Invalid Input",
 					JOptionPane.WARNING_MESSAGE);
 			return;
+		}
+	}
+	
+	public void updateGUITasks() {
+		this.removeAllGUITasks();
+		Collections.sort(TaskerMain.tsk);
+		for (int i = 0; i < TaskerMain.tsk.size(); i++) {
+			this.addGUITask(TaskerMain.tsk.elementAt(i));
 		}
 	}
 
@@ -114,14 +124,13 @@ public class TaskerGUI extends JFrame implements ActionListener {
 		if (arg0.getActionCommand().equals("New")) {
 			this.createDialogs();
 		} else {
-			System.out.println(tsk.size() + " " + TaskerMain.tsk.size());
 			for (int i = tsk.size() - 1; i >= 0 ; i--) {
 				if(tsk.get(i).isComplete()) {
 					tsk.remove(i);
 					TaskerMain.tsk.remove(i);
 				}
 			}
-			TaskerMain.updateGUITasks();
+			updateGUITasks();
 		}
 	}
 

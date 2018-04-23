@@ -1,6 +1,6 @@
 package at.restental.andreas.Tasker;
 
-public class Task {
+public class Task implements Comparable<Task> {
     String name;
     String description;
     String creator;
@@ -54,4 +54,9 @@ public class Task {
     public int getPriority() {
         return priority;
     }
+
+	@Override
+	public int compareTo(Task arg0) {
+		return arg0.getPriority() - this.priority;
+	}
 }
